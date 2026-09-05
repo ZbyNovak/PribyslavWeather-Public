@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-06T00:37:09+02:00",
+  "generated_at": "2026-09-06T00:44:54+02:00",
   "data_updated_at": "2026-09-05T22:36:46Z",
   "feed_runs": {
     "ALADIN": {
@@ -17,5 +17,5 @@
     }
   },
   "status": "ok",
-  "published_at": "2026-09-06T00:37:09+02:00"
+  "published_at": "2026-09-06T00:44:54+02:00"
 }
