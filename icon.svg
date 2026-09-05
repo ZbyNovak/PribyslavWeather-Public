@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0b1620"/>
+  <circle cx="190" cy="180" r="86" fill="#ffd45a"/>
+  <g fill="none" stroke="#ffd45a" stroke-width="24" stroke-linecap="round">
+    <path d="M190 46v42M190 272v42M56 180h42M282 180h42M95 85l30 30M255 245l30 30M95 275l30-30M255 115l30-30"/>
+  </g>
+  <path d="M150 360c0-58 47-105 105-105 42 0 78 24 95 59 13-8 28-12 44-12 47 0 86 38 86 86s-39 86-86 86H155c-47 0-85-38-85-85 0-38 25-70 60-81 6-3 13-5 20-6z" fill="#dbeeff"/>
+  <text x="256" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="700" fill="#0b1620">P</text>
+</svg>
