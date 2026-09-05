@@ -1,10 +1,9 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-09-05T19:31:43+02:00",
-  "report_type": "PM",
-  "source_report": "reports/2026/09/2026-09-05-PM.md",
-  "prefetch_path": "raw/inbox/2026/09/05/1927",
-  "mosmix_path": "raw/mosmix/2026/09/05/1927/mosmix-11659.json",
+  "schema_version": 2,
+  "generated_at": "2026-09-06T00:28:08+02:00",
+  "data_schema_version": 2,
+  "collection_path": "data/state/collection.json",
+  "latest_path": "data/state/latest.json",
   "status": "ok",
-  "published_at": "2026-09-05T20:47:14+02:00"
+  "published_at": "2026-09-06T00:28:10+02:00"
 }
