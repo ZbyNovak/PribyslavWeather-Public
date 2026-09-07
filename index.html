@@ -91,6 +91,16 @@
     .radar-links { margin: 7px 1px 0; font-size: .76rem; line-height: 1.45; }
     .radar-links a { color: inherit; }
     .radar-links a + a::before { content: " • "; opacity: .6; }
+    #environment { margin: 18px 8px 0; }
+    #environment h2 { margin: 0 0 4px; font-size: 1rem; }
+    .environment-intro { margin: 0 0 9px; font-size: .78rem; opacity: .76; line-height: 1.4; }
+    #environment-dashboard {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background: color-mix(in srgb, CanvasText 4%, Canvas);
+    }
     @media (min-width: 900px) {
       .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .radar-frame { min-height: 360px; }
@@ -150,6 +160,14 @@
           </p>
         </article>
       </div>
+    </section>
+
+    <section id="environment" aria-labelledby="environment-title">
+      <h2 id="environment-title">Půda a voda</h2>
+      <p class="environment-intro">Modelový odhad půdní vlhkosti ECMWF IFS / Open-Meteo. Jde o objemový obsah vody v modelových vrstvách; nejde o lokální měření, procento rostlinám dostupné vody ani kategorii sucha.</p>
+      <a class="dashboard-link" href="environment.png" target="_blank" rel="noopener">
+        <img id="environment-dashboard" src="environment.png" alt="Modelový přehled půdní vlhkosti pro Přibyslav">
+      </a>
     </section>
   </main>
   <script>
