@@ -1,16 +1,38 @@
 {
-  "schema_version": 1,
-  "kind": "official_warning_state",
-  "source_id": "CHMI_SIVS_CAP",
-  "source_status": "unavailable",
-  "checked_at": null,
-  "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
-  "summary": {
-    "primary_count": 0,
-    "nearby_count": 0,
-    "relevant_count": 0,
-    "max_color": "green"
+  "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
+  "bulletin": {
+    "identifier": "2.49.0.0.203.0.CZ.260907080827.XOCZ50_OKPR_000347",
+    "message_type": "Update",
+    "sent_at": "2026-09-07T10:08:27+02:00",
+    "status": "Actual"
   },
-  "warnings": [],
-  "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz"
+  "checked_at": "2026-09-07T19:33:12Z",
+  "kind": "official_warning_state",
+  "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
+  "schema_version": 1,
+  "source_file": "alert_cap_50_070808.xml",
+  "source_id": "CHMI_SIVS_CAP",
+  "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
+  "source_status": "ok",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_070808.xml",
+  "summary": {
+    "max_color": "green",
+    "nearby_count": 0,
+    "primary_count": 0,
+    "relevant_count": 0
+  },
+  "territory": {
+    "nearby_orp": {
+      "6101": "Bystřice nad Pernštejnem",
+      "6104": "Chotěboř",
+      "6108": "Nové Město na Moravě",
+      "6111": "Světlá nad Sázavou",
+      "6114": "Velké Meziříčí",
+      "6115": "Žďár nad Sázavou"
+    },
+    "primary_orp": {
+      "6102": "Havlíčkův Brod"
+    }
+  },
+  "warnings": []
 }
