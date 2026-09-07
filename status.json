@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-08T01:48:52+02:00",
-  "data_updated_at": "2026-09-07T23:27:23Z",
+  "generated_at": "2026-09-08T01:51:26+02:00",
+  "data_updated_at": "2026-09-07T23:49:05Z",
   "feed_runs": {
     "ALADIN": {
-      "run_key": "20260907T180000Z-25b644cd",
-      "run_signature": "25b644cd3e4e85d00d11388ee5f888549e95ba87c809817da1e063062b38bf41"
+      "run_key": "20260907T180000Z-6093a1db",
+      "run_signature": "6093a1db1349fbfaf76ac61dd949e773b64e1f76befdcd381d246ffe4a961c10"
     },
     "ICON": {
       "run_key": "20260907T210000Z-eec33824",
@@ -17,5 +17,5 @@
     }
   },
   "status": "ok",
-  "published_at": "2026-09-08T01:48:52+02:00"
+  "published_at": "2026-09-08T01:51:26+02:00"
 }
