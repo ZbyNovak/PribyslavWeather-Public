@@ -66,6 +66,35 @@
       background: color-mix(in srgb, CanvasText 4%, Canvas);
     }
     #error { display: none; padding: 24px 16px; text-align: center; }
+    #radars { margin: 14px 8px 0; }
+    #radars h2 { margin: 0 0 4px; font-size: 1rem; }
+    .radar-intro { margin: 0 0 9px; font-size: .78rem; opacity: .72; line-height: 1.35; }
+    .radar-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .radar-card {
+      min-width: 0;
+      border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
+      border-radius: 10px;
+      padding: 9px;
+      background: color-mix(in srgb, CanvasText 3%, Canvas);
+    }
+    .radar-card h3 { margin: 0 0 3px; font-size: .9rem; }
+    .radar-description { margin: 0 0 7px; font-size: .76rem; opacity: .76; line-height: 1.35; }
+    .radar-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 280px;
+      border: 0;
+      border-radius: 8px;
+      background: color-mix(in srgb, CanvasText 5%, Canvas);
+    }
+    .radar-links { margin: 7px 1px 0; font-size: .76rem; line-height: 1.45; }
+    .radar-links a { color: inherit; }
+    .radar-links a + a::before { content: " • "; opacity: .6; }
+    @media (min-width: 900px) {
+      .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .radar-frame { min-height: 360px; }
+    }
   </style>
 </head>
 <body>
@@ -81,6 +110,47 @@
       <img id="dashboard" src="latest.png" alt="Aktuální meteorologický přehled pro Přibyslav">
     </a>
     <div id="error">Aktuální dashboard zatím není k dispozici.</div>
+
+    <section id="radars" aria-labelledby="radar-title">
+      <h2 id="radar-title">Radar srážek</h2>
+      <p class="radar-intro">Živé externí mapy jsou doplněk k přehledu výše. Pokud se některá mapa nenačte, použij přímý odkaz pod ní.</p>
+      <div class="radar-grid">
+        <article class="radar-card">
+          <h3>Detail Přibyslav – RainViewer</h3>
+          <p class="radar-description">Detailní živý pohled na Přibyslav a blízké okolí. Pro český oficiální radar jsou pod mapou přímé odkazy na ČHMÚ a Bourky.cz.</p>
+          <iframe
+            class="radar-frame"
+            title="Detailní radar Přibyslav – RainViewer"
+            src="https://www.rainviewer.com/map.html?loc=49.576,15.739,10"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="fullscreen">
+          </iframe>
+          <p class="radar-links">
+            <a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,10" target="_blank" rel="noopener">Otevřít detail RainViewer</a>
+            <a href="https://produkty.chmi.cz/radar/" target="_blank" rel="noopener">Oficiální radar ČHMÚ</a>
+            <a href="https://radar.bourky.cz/index.php?lat=49.576&amp;lon=15.739&amp;zoom=9&amp;lng=cz" target="_blank" rel="noopener">Bourky.cz</a>
+          </p>
+        </article>
+
+        <article class="radar-card">
+          <h3>Region – RainViewer</h3>
+          <p class="radar-description">Širší radarový pohled na Vysočinu a okolní region; mapa zůstává na externím zdroji RainViewer.</p>
+          <iframe
+            class="radar-frame"
+            title="Regionální radar Přibyslav – RainViewer"
+            src="https://www.rainviewer.com/map.html?loc=49.576,15.739,7"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="fullscreen">
+          </iframe>
+          <p class="radar-links">
+            <a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,7" target="_blank" rel="noopener">Otevřít region RainViewer</a>
+            <a href="https://www.windy.com/-Weather-radar-radar?radar,49.576,15.739,7" target="_blank" rel="noopener">Windy radar</a>
+          </p>
+        </article>
+      </div>
+    </section>
   </main>
   <script>
     const statusEl = document.getElementById('status');

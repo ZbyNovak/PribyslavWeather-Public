@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-07T21:42:18+02:00",
-  "data_updated_at": "2026-09-07T19:33:09Z",
+  "generated_at": "2026-09-07T22:18:04+02:00",
+  "data_updated_at": "2026-09-07T19:42:41Z",
   "feed_runs": {
     "ALADIN": {
       "run_key": "20260907T120000Z-7b17aa09",
@@ -17,5 +17,5 @@
     }
   },
   "status": "ok",
-  "published_at": "2026-09-07T21:42:18+02:00"
+  "published_at": "2026-09-07T22:18:04+02:00"
 }
