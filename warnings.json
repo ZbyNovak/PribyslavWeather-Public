@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "kind": "official_warning_state",
+  "source_id": "CHMI_SIVS_CAP",
+  "source_status": "unavailable",
+  "checked_at": null,
+  "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
+  "summary": {
+    "primary_count": 0,
+    "nearby_count": 0,
+    "relevant_count": 0,
+    "max_color": "green"
+  },
+  "warnings": [],
+  "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz"
+}

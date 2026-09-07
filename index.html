@@ -33,6 +33,29 @@
     h1 { margin: 0; font-size: 1.05rem; font-weight: 650; }
     #status { margin-top: 2px; font-size: .78rem; opacity: .72; }
     main { padding: 8px 0 calc(12px + env(safe-area-inset-bottom)); }
+    #warnings { margin: 0 8px 8px; }
+    .warning-compact, .warning-card, .warning-nearby-wrap {
+      border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
+      border-radius: 10px;
+      padding: 9px 11px;
+      background: color-mix(in srgb, CanvasText 4%, Canvas);
+    }
+    .warning-compact { font-size: .82rem; }
+    .warning-compact a, .warning-card a, .warning-nearby-wrap a { color: inherit; }
+    .warning-card { margin-bottom: 7px; border-width: 2px; }
+    .warning-card.yellow { border-color: #c39b00; background: color-mix(in srgb, #ffd83d 18%, Canvas); }
+    .warning-card.orange { border-color: #d66a00; background: color-mix(in srgb, #ff9500 18%, Canvas); }
+    .warning-card.red { border-color: #c62828; background: color-mix(in srgb, #ef5350 18%, Canvas); }
+    .warning-card.unknown { border-color: color-mix(in srgb, CanvasText 45%, transparent); }
+    .warning-label { font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
+    .warning-title { margin: 3px 0 2px; font-size: 1rem; font-weight: 750; }
+    .warning-meta { font-size: .78rem; opacity: .78; }
+    .warning-description { margin: 7px 0 0; font-size: .86rem; line-height: 1.35; }
+    .warning-card details, .warning-nearby-wrap details { margin-top: 7px; font-size: .82rem; }
+    .warning-nearby-wrap { margin-top: 7px; font-size: .82rem; }
+    .warning-nearby-item { padding: 7px 0; border-top: 1px solid color-mix(in srgb, CanvasText 14%, transparent); }
+    .warning-nearby-item:first-of-type { border-top: 0; }
+    .warning-stale { border-color: #b07b00; }
     a.dashboard-link { display: block; text-decoration: none; color: inherit; }
     #dashboard {
       display: block;
@@ -51,6 +74,9 @@
     <div id="status">Načítám poslední aktualizaci…</div>
   </header>
   <main>
+    <section id="warnings" aria-live="polite">
+      <div class="warning-compact">Načítám oficiální výstrahy ČHMÚ…</div>
+    </section>
     <a id="dashboardLink" class="dashboard-link" href="latest.png" target="_blank" rel="noopener">
       <img id="dashboard" src="latest.png" alt="Aktuální meteorologický přehled pro Přibyslav">
     </a>
@@ -58,9 +84,120 @@
   </main>
   <script>
     const statusEl = document.getElementById('status');
+    const warningsEl = document.getElementById('warnings');
     const imageEl = document.getElementById('dashboard');
     const linkEl = document.getElementById('dashboardLink');
     const errorEl = document.getElementById('error');
+    const officialWarningsUrl = 'https://www.chmi.cz/predpoved-pocasi/rizika';
+
+    function text(tag, value, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = value || '';
+      return el;
+    }
+
+    function officialLink(label = 'Oficiální mapa ČHMÚ') {
+      const a = document.createElement('a');
+      a.href = officialWarningsUrl;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = label;
+      return a;
+    }
+
+    function formatTime(value) {
+      if (!value) return 'čas neuveden';
+      const d = new Date(value);
+      if (Number.isNaN(d.getTime())) return value;
+      return d.toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short' });
+    }
+
+    function warningValidity(item) {
+      return `${formatTime(item.onset)} – ${formatTime(item.expires)}`;
+    }
+
+    function renderPrimary(item) {
+      const color = item?.awareness_level?.color || 'unknown';
+      const card = document.createElement('article');
+      card.className = `warning-card ${color}`;
+      card.appendChild(text('div', 'Oficiální výstraha ČHMÚ – Přibyslav / ORP Havlíčkův Brod', 'warning-label'));
+      card.appendChild(text('div', item.headline || item.event || 'Výstraha ČHMÚ', 'warning-title'));
+      card.appendChild(text('div', `${color.toUpperCase()} • ${warningValidity(item)}`, 'warning-meta'));
+      if (item.description) card.appendChild(text('p', item.description, 'warning-description'));
+      if (item.instruction) {
+        const details = document.createElement('details');
+        details.appendChild(text('summary', 'Doporučení ČHMÚ'));
+        details.appendChild(text('p', item.instruction, 'warning-description'));
+        card.appendChild(details);
+      }
+      card.appendChild(officialLink());
+      return card;
+    }
+
+    function renderNearby(items) {
+      const wrap = document.createElement('div');
+      wrap.className = 'warning-nearby-wrap';
+      const details = document.createElement('details');
+      details.appendChild(text('summary', `Okolí: ${items.length} relevantní výstraha${items.length === 1 ? '' : 'y'} – okresy Havlíčkův Brod / Žďár nad Sázavou`));
+      for (const item of items) {
+        const row = document.createElement('div');
+        row.className = 'warning-nearby-item';
+        const color = item?.awareness_level?.color || 'unknown';
+        row.appendChild(text('div', `${item.event || 'Výstraha ČHMÚ'} • ${color.toUpperCase()}`, 'warning-title'));
+        row.appendChild(text('div', warningValidity(item), 'warning-meta'));
+        if (item.description) row.appendChild(text('div', item.description, 'warning-description'));
+        details.appendChild(row);
+      }
+      details.appendChild(officialLink());
+      wrap.appendChild(details);
+      return wrap;
+    }
+
+    function renderWarningState(data) {
+      warningsEl.replaceChildren();
+      const checked = data.checked_at ? new Date(data.checked_at) : null;
+      const ageMs = checked && !Number.isNaN(checked.getTime()) ? Date.now() - checked.getTime() : Infinity;
+      const stale = ageMs > 9 * 60 * 60 * 1000;
+
+      if (data.source_status !== 'ok' || stale) {
+        const box = document.createElement('div');
+        box.className = 'warning-compact warning-stale';
+        box.appendChild(document.createTextNode('Výstrahy ČHMÚ se nepodařilo čerstvě ověřit. '));
+        box.appendChild(officialLink('Ověřit na ČHMÚ'));
+        warningsEl.appendChild(box);
+        return;
+      }
+
+      const primary = (data.warnings || []).filter(item => item.relevance === 'primary');
+      const nearby = (data.warnings || []).filter(item => item.relevance === 'nearby');
+      if (!primary.length && !nearby.length) {
+        const box = document.createElement('div');
+        box.className = 'warning-compact';
+        box.appendChild(document.createTextNode('ČHMÚ: bez relevantní výstrahy pro Přibyslav a okolí • '));
+        box.appendChild(officialLink());
+        warningsEl.appendChild(box);
+        return;
+      }
+
+      for (const item of primary) warningsEl.appendChild(renderPrimary(item));
+      if (nearby.length) warningsEl.appendChild(renderNearby(nearby));
+    }
+
+    async function refreshWarnings() {
+      try {
+        const response = await fetch(`warnings.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error('warnings unavailable');
+        renderWarningState(await response.json());
+      } catch {
+        warningsEl.replaceChildren();
+        const box = document.createElement('div');
+        box.className = 'warning-compact warning-stale';
+        box.appendChild(document.createTextNode('Výstrahy ČHMÚ nejsou právě dostupné. '));
+        box.appendChild(officialLink('Ověřit na ČHMÚ'));
+        warningsEl.appendChild(box);
+      }
+    }
 
     async function refresh() {
       let version = Date.now().toString();
@@ -92,7 +229,7 @@
       errorEl.style.display = 'block';
     });
 
-    refresh();
+    Promise.allSettled([refresh(), refreshWarnings()]);
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => {});
