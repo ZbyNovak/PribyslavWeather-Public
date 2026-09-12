@@ -101,6 +101,26 @@
       border-radius: 10px;
       background: color-mix(in srgb, CanvasText 4%, Canvas);
     }
+    .environment-details {
+      margin-top: 9px;
+      display: grid;
+      gap: 6px;
+    }
+    .environment-details details {
+      border: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
+      border-radius: 9px;
+      padding: 8px 10px;
+      background: color-mix(in srgb, CanvasText 2.5%, Canvas);
+      font-size: .79rem;
+      line-height: 1.42;
+    }
+    .environment-details summary {
+      cursor: pointer;
+      font-weight: 650;
+    }
+    .environment-details p {
+      margin: 7px 0 0;
+    }
     @media (min-width: 900px) {
       .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .radar-frame { min-height: 360px; }
@@ -164,10 +184,24 @@
 
     <section id="environment" aria-labelledby="environment-title">
       <h2 id="environment-title">Půda a voda</h2>
-      <p class="environment-intro">Modelový odhad půdní vlhkosti ECMWF IFS / Open-Meteo. Jde o objemový obsah vody v modelových vrstvách; nejde o lokální měření, procento rostlinám dostupné vody ani kategorii sucha.</p>
+      <p class="environment-intro">Dlouhodobější stav půdy, agronomického sucha a podzemní vody. Hlavní obrázek je záměrně stručný; metodika a omezení jsou rozbalovací pod ním.</p>
       <a class="dashboard-link" href="environment.png" target="_blank" rel="noopener">
-        <img id="environment-dashboard" src="environment.png" alt="Modelový přehled půdní vlhkosti pro Přibyslav">
+        <img id="environment-dashboard" src="environment.png" alt="Přehled půdní vlhkosti, agronomického sucha a podzemní vody pro oblast Přibyslavi">
       </a>
+      <div class="environment-details">
+        <details>
+          <summary>Jak číst půdní vlhkost</summary>
+          <p>Modelový odhad ve třech pásech používá ECMWF IFS přes Open-Meteo ve vrstvách 0–7, 7–28 a 28–100 cm. Plná čára je historický modelový odhad, přerušovaná část předpověď; svislá tečkovaná hranice odděluje minulost od forecastu. Jednotkou zdrojových hodnot je m³/m³. Barva je relativní k rozsahu právě zobrazených hodnot a není kategorií sucha. Nejde o lokální měření ani o procento rostlinám dostupné vody.</p>
+        </details>
+        <details>
+          <summary>Jak číst agronomické sucho</summary>
+          <p>Pás přebírá týdenní provider kategorii HAMR / ČHMÚ pro DVL_0190 beze změny významu: 1 = extrémní sucho, 2 = výrazné sucho, 3 = mírné sucho, 4 = normální stav, 5 = mírné nasycení, 6 = výrazné nasycení, 7 = extrémní nasycení. Jde o regionální modelově odvozený indikátor, nikoli o lokální měření zahrady nebo vlastní skóre PribyslavWeather.</p>
+        </details>
+        <details>
+          <summary>Jak číst podzemní vodu ve vrtech</summary>
+          <p>Regionální indikátor; nejde o měření ani odhad hladiny soukromé studny. Čáry jsou tři samostatné vrty ČHMÚ. Zobrazuje se odchylka hladiny každého vrtu od jeho vlastního sezónního mediánu q50: nula je obvyklá sezónní hladina daného vrtu, kladná hodnota znamená vyšší a záporná nižší hladinu vůči tomuto mediánu. Řady se neslučují do jedné syntetické hladiny Přibyslavi. Z regionálního trendu nelze numericky odvodit hladinu soukromé 11m studny.</p>
+        </details>
+      </div>
     </section>
   </main>
   <script>
