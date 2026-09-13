@@ -184,22 +184,22 @@
 
     <section id="environment" aria-labelledby="environment-title">
       <h2 id="environment-title">Půda a voda</h2>
-      <p class="environment-intro">Dlouhodobější stav půdy, agronomického sucha a podzemní vody. Hlavní obrázek je záměrně stručný; metodika a omezení jsou rozbalovací pod ním.</p>
+      <p class="environment-intro">Půdní vlhkost, její regionální stav vůči normálu a podzemní voda mají sjednocenou přibližně čtvrtletní časovou osu. Hlavní obrázek je záměrně stručný; metodika a omezení jsou rozbalovací pod ním.</p>
       <a class="dashboard-link" href="environment.png" target="_blank" rel="noopener">
-        <img id="environment-dashboard" src="environment.png" alt="Přehled půdní vlhkosti, agronomického sucha a podzemní vody pro oblast Přibyslavi">
+        <img id="environment-dashboard" src="environment.png" alt="Přehled půdní vlhkosti, regionálního stavu vůči normálu a podzemní vody pro oblast Přibyslavi">
       </a>
       <div class="environment-details">
         <details>
           <summary>Jak číst půdní vlhkost</summary>
-          <p>Modelový odhad ve třech pásech používá ECMWF IFS přes Open-Meteo ve vrstvách 0–7, 7–28 a 28–100 cm. Plná čára je historický modelový odhad, přerušovaná část předpověď; svislá tečkovaná hranice odděluje minulost od forecastu. Jednotkou zdrojových hodnot je m³/m³. Barva je relativní k rozsahu právě zobrazených hodnot a není kategorií sucha. Nejde o lokální měření ani o procento rostlinám dostupné vody.</p>
+          <p>Modelový odhad používá ECMWF IFS přes Open-Meteo a zůstává rozdělený do tří samostatných grafů 0–7, 7–28 a 28–100 cm. Plná čára je historický modelový odhad, přerušovaná část předpověď. Svislé čáry odpovídají pondělím a jsou zarovnané s grafy pod nimi; značka současnosti odděluje historickou část od budoucího forecastu. Jednotkou zdrojových hodnot je m³/m³. Barva je relativní k rozsahu právě zobrazených hodnot a není kategorií sucha. Nejde o lokální měření ani o procento rostlinám dostupné vody.</p>
         </details>
         <details>
-          <summary>Jak číst agronomické sucho</summary>
-          <p>Pás přebírá týdenní provider kategorii HAMR / ČHMÚ pro DVL_0190 beze změny významu: 1 = extrémní sucho, 2 = výrazné sucho, 3 = mírné sucho, 4 = normální stav, 5 = mírné nasycení, 6 = výrazné nasycení, 7 = extrémní nasycení. Jde o regionální modelově odvozený indikátor, nikoli o lokální měření zahrady nebo vlastní skóre PribyslavWeather.</p>
+          <summary>Jak číst odchylku půdní vlhkosti od normálu</summary>
+          <p>Schodový graf zobrazuje týdenní provider kategorii HAMR / ČHMÚ pro DVL_0190 vůči kategorii 4 = normální stav. Kategorie 1–3 jsou sušší než normál, 5–7 vlhčí nebo nasycenější než normál. Výška grafu je pouze pořadové vizuální umístění původních kategorií kolem středu; není to procentní ani jiná fyzikální odchylka půdní vlhkosti a hodnoty se lokálně nepřepočítávají. Chybějící týden zůstává mezerou. Jde o regionální modelově odvozený indikátor, nikoli o lokální měření zahrady nebo vlastní skóre PribyslavWeather.</p>
         </details>
         <details>
           <summary>Jak číst podzemní vodu ve vrtech</summary>
-          <p>Regionální indikátor; nejde o měření ani odhad hladiny soukromé studny. Čáry jsou tři samostatné vrty ČHMÚ. Zobrazuje se odchylka hladiny každého vrtu od jeho vlastního sezónního mediánu q50: nula je obvyklá sezónní hladina daného vrtu, kladná hodnota znamená vyšší a záporná nižší hladinu vůči tomuto mediánu. Řady se neslučují do jedné syntetické hladiny Přibyslavi. Z regionálního trendu nelze numericky odvodit hladinu soukromé 11m studny.</p>
+          <p>Regionální indikátor; nejde o měření ani odhad hladiny soukromé studny. Čáry jsou tři samostatné vrty ČHMÚ. Zobrazuje se odchylka hladiny každého vrtu od jeho vlastního sezónního mediánu q50: nula je obvyklá sezónní hladina daného vrtu, kladná hodnota znamená vyšší a záporná nižší hladinu vůči tomuto mediánu. Časová osa je zarovnaná s grafy výše, graf nemá predikci a chybějící delší úsek se nespojuje. Řady se neslučují do jedné syntetické hladiny Přibyslavi. Z regionálního trendu nelze numericky odvodit hladinu soukromé 11m studny.</p>
         </details>
       </div>
     </section>
