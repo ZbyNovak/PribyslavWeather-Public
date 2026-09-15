@@ -14,32 +14,14 @@
   <style>
     :root { color-scheme: light dark; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: Canvas;
-      color: CanvasText;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      padding: calc(8px + env(safe-area-inset-top)) 12px 8px;
-      background: color-mix(in srgb, Canvas 92%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
-    }
-    h1 { margin: 0; font-size: 1.05rem; font-weight: 650; }
-    #status { margin-top: 2px; font-size: .78rem; opacity: .72; }
+    body { margin: 0; min-height: 100vh; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: Canvas; color: CanvasText; }
+    header { position: sticky; top: 0; z-index: 2; padding: calc(8px + env(safe-area-inset-top)) 12px 8px; background: color-mix(in srgb, Canvas 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid color-mix(in srgb, CanvasText 18%, transparent); }
+    .header-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    h1 { margin: 0; font-size: 1.05rem; font-weight: 650; white-space: nowrap; }
+    #status { font-size: .76rem; color: color-mix(in srgb, CanvasText 58%, transparent); text-align: right; white-space: nowrap; }
     main { padding: 8px 0 calc(12px + env(safe-area-inset-bottom)); }
     #warnings { margin: 0 8px 8px; }
-    .warning-compact, .warning-card, .warning-nearby-wrap {
-      border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
-      border-radius: 10px;
-      padding: 9px 11px;
-      background: color-mix(in srgb, CanvasText 4%, Canvas);
-    }
+    .warning-compact, .warning-card, .warning-nearby-wrap { border: 1px solid color-mix(in srgb, CanvasText 20%, transparent); border-radius: 10px; padding: 9px 11px; background: color-mix(in srgb, CanvasText 4%, Canvas); }
     .warning-compact { font-size: .82rem; }
     .warning-compact a, .warning-card a, .warning-nearby-wrap a { color: inherit; }
     .warning-card { margin-bottom: 7px; border-width: 2px; }
@@ -57,150 +39,67 @@
     .warning-nearby-item:first-of-type { border-top: 0; }
     .warning-stale { border-color: #b07b00; }
     a.dashboard-link { display: block; text-decoration: none; color: inherit; }
-    #dashboard {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 40vh;
-      object-fit: contain;
-      background: color-mix(in srgb, CanvasText 4%, Canvas);
-    }
+    #dashboard { display: block; width: 100%; height: auto; min-height: 40vh; object-fit: contain; background: color-mix(in srgb, CanvasText 4%, Canvas); }
     #error { display: none; padding: 24px 16px; text-align: center; }
-    #radars { margin: 14px 8px 0; }
-    #radars h2 { margin: 0 0 4px; font-size: 1rem; }
-    .radar-intro { margin: 0 0 9px; font-size: .78rem; opacity: .72; line-height: 1.35; }
+    #environment, #radars { margin: 18px 8px 0; }
+    #environment h2, #radars h2 { margin: 0 0 4px; font-size: 1rem; }
+    .environment-intro, .radar-intro { margin: 0 0 9px; font-size: .78rem; opacity: .76; line-height: 1.4; }
+    #environment-dashboard { display: block; width: 100%; height: auto; border-radius: 10px; background: color-mix(in srgb, CanvasText 4%, Canvas); }
+    .environment-details { margin-top: 9px; display: grid; gap: 6px; }
+    .environment-details details { border: 1px solid color-mix(in srgb, CanvasText 16%, transparent); border-radius: 9px; padding: 8px 10px; background: color-mix(in srgb, CanvasText 2.5%, Canvas); font-size: .79rem; line-height: 1.42; }
+    .environment-details summary { cursor: pointer; font-weight: 650; }
+    .environment-details p { margin: 7px 0 0; }
     .radar-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
-    .radar-card {
-      min-width: 0;
-      border: 1px solid color-mix(in srgb, CanvasText 18%, transparent);
-      border-radius: 10px;
-      padding: 9px;
-      background: color-mix(in srgb, CanvasText 3%, Canvas);
-    }
+    .radar-card { min-width: 0; border: 1px solid color-mix(in srgb, CanvasText 18%, transparent); border-radius: 10px; padding: 9px; background: color-mix(in srgb, CanvasText 3%, Canvas); }
     .radar-card h3 { margin: 0 0 3px; font-size: .9rem; }
     .radar-description { margin: 0 0 7px; font-size: .76rem; opacity: .76; line-height: 1.35; }
-    .radar-frame {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      min-height: 280px;
-      border: 0;
-      border-radius: 8px;
-      background: color-mix(in srgb, CanvasText 5%, Canvas);
-    }
+    .radar-frame { display: block; width: 100%; aspect-ratio: 4 / 3; min-height: 280px; border: 0; border-radius: 8px; background: color-mix(in srgb, CanvasText 5%, Canvas); }
     .radar-links { margin: 7px 1px 0; font-size: .76rem; line-height: 1.45; }
     .radar-links a { color: inherit; }
     .radar-links a + a::before { content: " • "; opacity: .6; }
-    #environment { margin: 18px 8px 0; }
-    #environment h2 { margin: 0 0 4px; font-size: 1rem; }
-    .environment-intro { margin: 0 0 9px; font-size: .78rem; opacity: .76; line-height: 1.4; }
-    #environment-dashboard {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      background: color-mix(in srgb, CanvasText 4%, Canvas);
-    }
-    .environment-details {
-      margin-top: 9px;
-      display: grid;
-      gap: 6px;
-    }
-    .environment-details details {
-      border: 1px solid color-mix(in srgb, CanvasText 16%, transparent);
-      border-radius: 9px;
-      padding: 8px 10px;
-      background: color-mix(in srgb, CanvasText 2.5%, Canvas);
-      font-size: .79rem;
-      line-height: 1.42;
-    }
-    .environment-details summary {
-      cursor: pointer;
-      font-weight: 650;
-    }
-    .environment-details p {
-      margin: 7px 0 0;
-    }
-    @media (min-width: 900px) {
-      .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .radar-frame { min-height: 360px; }
-    }
+    @media (max-width: 520px) { .header-row { align-items: center; } #status { font-size: .70rem; } }
+    @media (min-width: 900px) { .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .radar-frame { min-height: 360px; } }
   </style>
 </head>
 <body>
   <header>
-    <h1>Počasí Přibyslav</h1>
-    <div id="status">Načítám poslední aktualizaci…</div>
+    <div class="header-row">
+      <h1>Počasí Přibyslav</h1>
+      <div id="status">Načítám aktualizaci…</div>
+    </div>
   </header>
   <main>
-    <section id="warnings" aria-live="polite">
-      <div class="warning-compact">Načítám oficiální výstrahy ČHMÚ…</div>
-    </section>
-    <a id="dashboardLink" class="dashboard-link" href="latest.png" target="_blank" rel="noopener">
-      <img id="dashboard" src="latest.png" alt="Aktuální meteorologický přehled pro Přibyslav">
-    </a>
+    <section id="warnings" aria-live="polite"><div class="warning-compact">Načítám oficiální výstrahy ČHMÚ…</div></section>
+    <a id="dashboardLink" class="dashboard-link" href="latest.png" target="_blank" rel="noopener"><img id="dashboard" src="latest.png" alt="Aktuální meteorologický přehled pro Přibyslav"></a>
     <div id="error">Aktuální dashboard zatím není k dispozici.</div>
-
-    <section id="radars" aria-labelledby="radar-title">
-      <h2 id="radar-title">Radar srážek</h2>
-      <p class="radar-intro">Živé externí mapy jsou doplněk k přehledu výše. Pokud se některá mapa nenačte, použij přímý odkaz pod ní.</p>
-      <div class="radar-grid">
-        <article class="radar-card">
-          <h3>Detail Přibyslav – RainViewer</h3>
-          <p class="radar-description">Detailní živý pohled na Přibyslav a blízké okolí. Pro český oficiální radar jsou pod mapou přímé odkazy na ČHMÚ a Bourky.cz.</p>
-          <iframe
-            class="radar-frame"
-            title="Detailní radar Přibyslav – RainViewer"
-            src="https://www.rainviewer.com/map.html?loc=49.576,15.739,10"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="fullscreen">
-          </iframe>
-          <p class="radar-links">
-            <a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,10" target="_blank" rel="noopener">Otevřít detail RainViewer</a>
-            <a href="https://produkty.chmi.cz/radar/" target="_blank" rel="noopener">Oficiální radar ČHMÚ</a>
-            <a href="https://radar.bourky.cz/index.php?lat=49.576&amp;lon=15.739&amp;zoom=9&amp;lng=cz" target="_blank" rel="noopener">Bourky.cz</a>
-          </p>
-        </article>
-
-        <article class="radar-card">
-          <h3>Region – RainViewer</h3>
-          <p class="radar-description">Širší radarový pohled na Vysočinu a okolní region; mapa zůstává na externím zdroji RainViewer.</p>
-          <iframe
-            class="radar-frame"
-            title="Regionální radar Přibyslav – RainViewer"
-            src="https://www.rainviewer.com/map.html?loc=49.576,15.739,7"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="fullscreen">
-          </iframe>
-          <p class="radar-links">
-            <a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,7" target="_blank" rel="noopener">Otevřít region RainViewer</a>
-            <a href="https://www.windy.com/-Weather-radar-radar?radar,49.576,15.739,7" target="_blank" rel="noopener">Windy radar</a>
-          </p>
-        </article>
-      </div>
-    </section>
 
     <section id="environment" aria-labelledby="environment-title">
       <h2 id="environment-title">Půda a voda</h2>
-      <p class="environment-intro">Půdní vlhkost, její regionální stav vůči normálu a podzemní voda mají sjednocenou přibližně čtvrtletní časovou osu. Hlavní obrázek je záměrně stručný; metodika a omezení jsou rozbalovací pod ním.</p>
-      <a class="dashboard-link" href="environment.png" target="_blank" rel="noopener">
-        <img id="environment-dashboard" src="environment.png" alt="Přehled půdní vlhkosti, regionálního stavu vůči normálu a podzemní vody pro oblast Přibyslavi">
-      </a>
+      <p class="environment-intro">Půdní vlhkost, regionální stav vůči normálu a podzemní voda používají společnou přibližně dvacetitýdenní osu. Týdny jsou zarovnané na pondělí 0:00; začátky měsíců jsou zvýrazněné bez dalšího popisku.</p>
+      <a class="dashboard-link" href="environment.png" target="_blank" rel="noopener"><img id="environment-dashboard" src="environment.png" alt="Přehled půdní vlhkosti, regionálního stavu vůči normálu a podzemní vody pro oblast Přibyslavi"></a>
       <div class="environment-details">
-        <details>
-          <summary>Jak číst půdní vlhkost</summary>
-          <p>Modelový odhad používá ECMWF IFS přes Open-Meteo a zůstává rozdělený do tří samostatných grafů 0–7, 7–28 a 28–100 cm. Plná čára je historický modelový odhad, přerušovaná část předpověď. Svislé čáry odpovídají pondělím a jsou zarovnané s grafy pod nimi; značka současnosti odděluje historickou část od budoucího forecastu. Jednotkou zdrojových hodnot je m³/m³. Barva je relativní k rozsahu právě zobrazených hodnot a není kategorií sucha. Nejde o lokální měření ani o procento rostlinám dostupné vody.</p>
-        </details>
-        <details>
-          <summary>Jak číst odchylku půdní vlhkosti od normálu</summary>
-          <p>Schodový graf zobrazuje týdenní provider kategorii HAMR / ČHMÚ pro DVL_0190 vůči kategorii 4 = normální stav. Kategorie 1–3 jsou sušší než normál, 5–7 vlhčí nebo nasycenější než normál. Výška grafu je pouze pořadové vizuální umístění původních kategorií kolem středu; není to procentní ani jiná fyzikální odchylka půdní vlhkosti a hodnoty se lokálně nepřepočítávají. Chybějící týden zůstává mezerou. Jde o regionální modelově odvozený indikátor, nikoli o lokální měření zahrady nebo vlastní skóre PribyslavWeather.</p>
-        </details>
-        <details>
-          <summary>Jak číst podzemní vodu ve vrtech</summary>
-          <p>Regionální indikátor; nejde o měření ani odhad hladiny soukromé studny. Čáry jsou tři samostatné vrty ČHMÚ. Zobrazuje se odchylka hladiny každého vrtu od jeho vlastního sezónního mediánu q50: nula je obvyklá sezónní hladina daného vrtu, kladná hodnota znamená vyšší a záporná nižší hladinu vůči tomuto mediánu. Časová osa je zarovnaná s grafy výše, graf nemá predikci a chybějící delší úsek se nespojuje. Řady se neslučují do jedné syntetické hladiny Přibyslavi. Z regionálního trendu nelze numericky odvodit hladinu soukromé 11m studny.</p>
-        </details>
+        <details><summary>Jak číst půdní vlhkost</summary><p>Modelový odhad používá ECMWF IFS přes Open-Meteo a zůstává rozdělený do tří samostatných grafů 0–7, 7–28 a 28–100 cm. Plná čára je historický modelový odhad, přerušovaná část předpověď. Jednotkou je m³/m³. Nejde o lokální měření ani o procento rostlinám dostupné vody.</p></details>
+        <details><summary>Jak číst odchylku půdní vlhkosti od normálu</summary><p>Schodový graf zobrazuje týdenní provider kategorii HAMR / ČHMÚ pro DVL_0190 vůči kategorii 4 = normální stav. Kategorie 1–3 jsou sušší, 5–7 vlhčí nebo nasycenější. Výška grafu je pouze pořadové vizuální umístění původních kategorií.</p></details>
+        <details><summary>Jak číst podzemní vodu ve vrtech</summary><p>Regionální indikátor; nejde o měření ani odhad hladiny soukromé studny. Čáry jsou tři samostatné vrty ČHMÚ a zobrazují odchylku od vlastního sezonního mediánu q50. Řady se neslučují do jedné syntetické hladiny Přibyslavi.</p></details>
+      </div>
+    </section>
+
+    <section id="radars" aria-labelledby="radar-title">
+      <h2 id="radar-title">Radar srážek</h2>
+      <p class="radar-intro">Radar je až na konci stránky. Dva různé externí pohledy se vzájemně doplňují; při problému použij přímé odkazy.</p>
+      <div class="radar-grid">
+        <article class="radar-card">
+          <h3>Detail Přibyslav – RainViewer</h3>
+          <p class="radar-description">Detailní radarový pohled nad Přibyslaví a blízkým okolím. Bourky.cz zůstává přímým českým alternativním pohledem.</p>
+          <iframe class="radar-frame" title="Detailní radar Přibyslav – RainViewer" src="https://www.rainviewer.com/map.html?loc=49.576,15.739,10" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen"></iframe>
+          <p class="radar-links"><a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,10" target="_blank" rel="noopener">Otevřít RainViewer detail</a><a href="https://radar.bourky.cz/index.php?lat=49.576&amp;lon=15.739&amp;zoom=9&amp;lng=cz" target="_blank" rel="noopener">Bourky.cz</a><a href="https://produkty.chmi.cz/radar/" target="_blank" rel="noopener">Oficiální radar ČHMÚ</a></p>
+        </article>
+        <article class="radar-card">
+          <h3>Region – Windy</h3>
+          <p class="radar-description">Širší regionální pohled s radarovou vrstvou Windy.</p>
+          <iframe class="radar-frame" title="Regionální radar Přibyslav – Windy" src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=default&amp;metricTemp=default&amp;metricWind=default&amp;zoom=7&amp;overlay=radar&amp;product=radar&amp;level=surface&amp;lat=49.576&amp;lon=15.739" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen"></iframe>
+          <p class="radar-links"><a href="https://www.windy.com/-Weather-radar-radar?radar,49.576,15.739,7" target="_blank" rel="noopener">Otevřít Windy radar</a><a href="https://www.rainviewer.com/map.html?loc=49.576,15.739,7" target="_blank" rel="noopener">RainViewer region</a></p>
+        </article>
       </div>
     </section>
   </main>
@@ -212,150 +111,47 @@
     const errorEl = document.getElementById('error');
     const officialWarningsUrl = 'https://www.chmi.cz/predpoved-pocasi/rizika';
 
-    function text(tag, value, className) {
-      const el = document.createElement(tag);
-      if (className) el.className = className;
-      el.textContent = value || '';
-      return el;
+    function text(tag, value, className) { const el = document.createElement(tag); if (className) el.className = className; el.textContent = value || ''; return el; }
+    function officialLink(label = 'Oficiální mapa ČHMÚ') { const a = document.createElement('a'); a.href = officialWarningsUrl; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; return a; }
+    function formatWarningTime(value) { if (!value) return 'čas neuveden'; const d = new Date(value); if (Number.isNaN(d.getTime())) return value; return d.toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Prague' }); }
+    function warningValidity(item) { return `${formatWarningTime(item.onset)} – ${formatWarningTime(item.expires)}`; }
+    function formatUpdate(value) {
+      if (!value) return 'Aktuální přehled';
+      const d = new Date(value); if (Number.isNaN(d.getTime())) return 'Aktuální přehled';
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('cs-CZ', { timeZone: 'Europe/Prague', day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+      return `Aktualizováno ${Number(parts.day)}.${Number(parts.month)}.${parts.year} ${Number(parts.hour)}:${parts.minute}`;
     }
-
-    function officialLink(label = 'Oficiální mapa ČHMÚ') {
-      const a = document.createElement('a');
-      a.href = officialWarningsUrl;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.textContent = label;
-      return a;
-    }
-
-    function formatTime(value) {
-      if (!value) return 'čas neuveden';
-      const d = new Date(value);
-      if (Number.isNaN(d.getTime())) return value;
-      return d.toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short' });
-    }
-
-    function warningValidity(item) {
-      return `${formatTime(item.onset)} – ${formatTime(item.expires)}`;
-    }
-
     function renderPrimary(item) {
-      const color = item?.awareness_level?.color || 'unknown';
-      const card = document.createElement('article');
-      card.className = `warning-card ${color}`;
+      const color = item?.awareness_level?.color || 'unknown'; const card = document.createElement('article'); card.className = `warning-card ${color}`;
       card.appendChild(text('div', 'Oficiální výstraha ČHMÚ – Přibyslav / ORP Havlíčkův Brod', 'warning-label'));
       card.appendChild(text('div', item.headline || item.event || 'Výstraha ČHMÚ', 'warning-title'));
       card.appendChild(text('div', `${color.toUpperCase()} • ${warningValidity(item)}`, 'warning-meta'));
       if (item.description) card.appendChild(text('p', item.description, 'warning-description'));
-      if (item.instruction) {
-        const details = document.createElement('details');
-        details.appendChild(text('summary', 'Doporučení ČHMÚ'));
-        details.appendChild(text('p', item.instruction, 'warning-description'));
-        card.appendChild(details);
-      }
-      card.appendChild(officialLink());
-      return card;
+      if (item.instruction) { const details = document.createElement('details'); details.appendChild(text('summary', 'Doporučení ČHMÚ')); details.appendChild(text('p', item.instruction, 'warning-description')); card.appendChild(details); }
+      card.appendChild(officialLink()); return card;
     }
-
     function renderNearby(items) {
-      const wrap = document.createElement('div');
-      wrap.className = 'warning-nearby-wrap';
-      const details = document.createElement('details');
+      const wrap = document.createElement('div'); wrap.className = 'warning-nearby-wrap'; const details = document.createElement('details');
       details.appendChild(text('summary', `Okolí: ${items.length} relevantní výstraha${items.length === 1 ? '' : 'y'} – okresy Havlíčkův Brod / Žďár nad Sázavou`));
-      for (const item of items) {
-        const row = document.createElement('div');
-        row.className = 'warning-nearby-item';
-        const color = item?.awareness_level?.color || 'unknown';
-        row.appendChild(text('div', `${item.event || 'Výstraha ČHMÚ'} • ${color.toUpperCase()}`, 'warning-title'));
-        row.appendChild(text('div', warningValidity(item), 'warning-meta'));
-        if (item.description) row.appendChild(text('div', item.description, 'warning-description'));
-        details.appendChild(row);
-      }
-      details.appendChild(officialLink());
-      wrap.appendChild(details);
-      return wrap;
+      for (const item of items) { const row = document.createElement('div'); row.className = 'warning-nearby-item'; const color = item?.awareness_level?.color || 'unknown'; row.appendChild(text('div', `${item.event || 'Výstraha ČHMÚ'} • ${color.toUpperCase()}`, 'warning-title')); row.appendChild(text('div', warningValidity(item), 'warning-meta')); if (item.description) row.appendChild(text('div', item.description, 'warning-description')); details.appendChild(row); }
+      details.appendChild(officialLink()); wrap.appendChild(details); return wrap;
     }
-
     function renderWarningState(data) {
-      warningsEl.replaceChildren();
-      const checked = data.checked_at ? new Date(data.checked_at) : null;
-      const ageMs = checked && !Number.isNaN(checked.getTime()) ? Date.now() - checked.getTime() : Infinity;
-      const stale = ageMs > 9 * 60 * 60 * 1000;
-
-      if (data.source_status !== 'ok' || stale) {
-        const box = document.createElement('div');
-        box.className = 'warning-compact warning-stale';
-        box.appendChild(document.createTextNode('Výstrahy ČHMÚ se nepodařilo čerstvě ověřit. '));
-        box.appendChild(officialLink('Ověřit na ČHMÚ'));
-        warningsEl.appendChild(box);
-        return;
-      }
-
-      const primary = (data.warnings || []).filter(item => item.relevance === 'primary');
-      const nearby = (data.warnings || []).filter(item => item.relevance === 'nearby');
-      if (!primary.length && !nearby.length) {
-        const box = document.createElement('div');
-        box.className = 'warning-compact';
-        box.appendChild(document.createTextNode('ČHMÚ: bez relevantní výstrahy pro Přibyslav a okolí • '));
-        box.appendChild(officialLink());
-        warningsEl.appendChild(box);
-        return;
-      }
-
-      for (const item of primary) warningsEl.appendChild(renderPrimary(item));
-      if (nearby.length) warningsEl.appendChild(renderNearby(nearby));
+      warningsEl.replaceChildren(); const checked = data.checked_at ? new Date(data.checked_at) : null; const ageMs = checked && !Number.isNaN(checked.getTime()) ? Date.now() - checked.getTime() : Infinity; const stale = ageMs > 9 * 60 * 60 * 1000;
+      if (data.source_status !== 'ok' || stale) { const box = document.createElement('div'); box.className = 'warning-compact warning-stale'; box.appendChild(document.createTextNode('Výstrahy ČHMÚ se nepodařilo čerstvě ověřit. ')); box.appendChild(officialLink('Ověřit na ČHMÚ')); warningsEl.appendChild(box); return; }
+      const primary = (data.warnings || []).filter(item => item.relevance === 'primary'); const nearby = (data.warnings || []).filter(item => item.relevance === 'nearby');
+      if (!primary.length && !nearby.length) { const box = document.createElement('div'); box.className = 'warning-compact'; box.appendChild(document.createTextNode('ČHMÚ: bez relevantní výstrahy pro Přibyslav a okolí • ')); box.appendChild(officialLink()); warningsEl.appendChild(box); return; }
+      for (const item of primary) warningsEl.appendChild(renderPrimary(item)); if (nearby.length) warningsEl.appendChild(renderNearby(nearby));
     }
-
-    async function refreshWarnings() {
-      try {
-        const response = await fetch(`warnings.json?t=${Date.now()}`, { cache: 'no-store' });
-        if (!response.ok) throw new Error('warnings unavailable');
-        renderWarningState(await response.json());
-      } catch {
-        warningsEl.replaceChildren();
-        const box = document.createElement('div');
-        box.className = 'warning-compact warning-stale';
-        box.appendChild(document.createTextNode('Výstrahy ČHMÚ nejsou právě dostupné. '));
-        box.appendChild(officialLink('Ověřit na ČHMÚ'));
-        warningsEl.appendChild(box);
-      }
-    }
-
+    async function refreshWarnings() { try { const response = await fetch(`warnings.json?t=${Date.now()}`, { cache: 'no-store' }); if (!response.ok) throw new Error('warnings unavailable'); renderWarningState(await response.json()); } catch { warningsEl.replaceChildren(); const box = document.createElement('div'); box.className = 'warning-compact warning-stale'; box.appendChild(document.createTextNode('Výstrahy ČHMÚ nejsou právě dostupné. ')); box.appendChild(officialLink('Ověřit na ČHMÚ')); warningsEl.appendChild(box); } }
     async function refresh() {
       let version = Date.now().toString();
-      try {
-        const response = await fetch(`status.json?t=${Date.now()}`, { cache: 'no-store' });
-        if (response.ok) {
-          const data = await response.json();
-          version = encodeURIComponent(data.published_at || data.generated_at || version);
-          if (data.generated_at) {
-            const d = new Date(data.generated_at);
-            statusEl.textContent = `Aktualizováno ${d.toLocaleString('cs-CZ', { dateStyle: 'short', timeStyle: 'short' })}`;
-          } else {
-            statusEl.textContent = 'Aktuální přehled';
-          }
-        } else {
-          statusEl.textContent = 'Aktuální přehled';
-        }
-      } catch {
-        statusEl.textContent = 'Aktuální přehled';
-      }
-
-      const src = `latest.png?v=${version}`;
-      imageEl.src = src;
-      linkEl.href = src;
+      try { const response = await fetch(`status.json?t=${Date.now()}`, { cache: 'no-store' }); if (response.ok) { const data = await response.json(); version = encodeURIComponent(data.published_at || data.generated_at || version); statusEl.textContent = formatUpdate(data.data_updated_at || data.published_at || data.generated_at); } else statusEl.textContent = 'Aktuální přehled'; } catch { statusEl.textContent = 'Aktuální přehled'; }
+      const src = `latest.png?v=${version}`; imageEl.src = src; linkEl.href = src;
     }
-
-    imageEl.addEventListener('error', () => {
-      imageEl.style.display = 'none';
-      errorEl.style.display = 'block';
-    });
-
+    imageEl.addEventListener('error', () => { imageEl.style.display = 'none'; errorEl.style.display = 'block'; });
     Promise.allSettled([refresh(), refreshWarnings()]);
-
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    }
+    if ('serviceWorker' in navigator) serviceWorker.register('sw.js').catch(() => {});
   </script>
 </body>
 </html>
