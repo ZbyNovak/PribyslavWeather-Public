@@ -1,21 +1,13 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-25T17:36:37+02:00",
-  "data_updated_at": "2026-09-25T15:35:08Z",
+  "generated_at": "2026-09-25T23:57:20+02:00",
+  "data_updated_at": "2026-09-25T21:53:40Z",
   "feed_runs": {
-    "ALADIN": {
-      "run_key": "20260925T060000Z-3fa3c655",
-      "run_signature": "3fa3c655b42007bf9b9483484e52cbc672bb93b6268e725c166242886d4e2a85"
-    },
-    "ICON": {
-      "run_key": "20260925T120000Z-4238cbb1",
-      "run_signature": "4238cbb14c219807eb0b3bcfeeb4ea5e3f8f5145b8371ea12471953f8d655fd7"
-    },
     "MOSMIX": {
-      "run_key": "20260925T090000Z-2966d2f0",
-      "run_signature": "2966d2f04375425f2bc0df4e2a574fa9de7241f89fd17561eefed966ba496ed0"
+      "run_key": "20260925T150000Z-af903c5a",
+      "run_signature": "af903c5a9080db99742d1bee21536c81b348040d48898e4c8695a3b9ad147e41"
     }
   },
   "status": "ok",
-  "published_at": "2026-09-25T17:36:37+02:00"
+  "published_at": "2026-09-25T23:57:20+02:00"
 }
