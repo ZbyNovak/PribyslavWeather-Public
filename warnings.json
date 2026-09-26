@@ -1,20 +1,20 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.260924083817.XOCZ50_OKPR_000363",
+    "identifier": "2.49.0.0.203.0.CZ.260926073617.XOCZ50_OKPR_000364",
     "message_type": "Update",
-    "sent_at": "2026-09-24T10:38:17+02:00",
+    "sent_at": "2026-09-26T09:36:17+02:00",
     "status": "Actual"
   },
-  "checked_at": "2026-09-26T00:55:42Z",
+  "checked_at": "2026-09-26T08:02:12Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_240838.xml",
+  "source_file": "alert_cap_50_260736.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_240838.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_260736.xml",
   "summary": {
     "max_color": "green",
     "nearby_count": 0,
