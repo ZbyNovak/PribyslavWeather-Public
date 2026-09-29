@@ -1,21 +1,21 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-29T18:40:43+02:00",
-  "data_updated_at": "2026-09-29T16:39:07Z",
+  "generated_at": "2026-09-30T00:42:41+02:00",
+  "data_updated_at": "2026-09-29T22:40:44Z",
   "feed_runs": {
     "ALADIN": {
-      "run_key": "20260929T120000Z-bfff3e5b",
-      "run_signature": "bfff3e5b94008ae15334f8f32c06dd26b09cce5e9dad19c854eed39ccad8701c"
+      "run_key": "20260929T180000Z-28646ed5",
+      "run_signature": "28646ed5e89d7f2020550f5dfc0c59aea267da434d61e5c1240dcbcb58651c72"
     },
     "ICON": {
-      "run_key": "20260929T150000Z-2c6fbd11",
-      "run_signature": "2c6fbd11a898aae9a4d85141b5059559f688bb7abccfdb6bcf845964c98cf5fd"
+      "run_key": "20260929T210000Z-fa732681",
+      "run_signature": "fa732681654632803824a207310d8926168d652e69c101dd24b454b4f99dab3d"
     },
     "MOSMIX": {
-      "run_key": "20260929T150000Z-2e0000a0",
-      "run_signature": "2e0000a0777abad1ff1b90a1618409a80ff3a2b977edffd337fcfed60e2f31ee"
+      "run_key": "20260929T210000Z-1994305b",
+      "run_signature": "1994305b6625c6049e53c1c8a6075ae7869eec2dd14bd6b2380f832fe2bfdca8"
     }
   },
   "status": "ok",
-  "published_at": "2026-09-29T18:40:43+02:00"
+  "published_at": "2026-09-30T00:42:41+02:00"
 }
