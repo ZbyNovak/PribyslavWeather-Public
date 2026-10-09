@@ -1,25 +1,25 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261008084252.XOCZ50_OKPR_000376",
-    "message_type": "Alert",
-    "sent_at": "2026-10-08T10:42:52+02:00",
+    "identifier": "2.49.0.0.203.0.CZ.261009075521.XOCZ50_OKPR_000377",
+    "message_type": "Update",
+    "sent_at": "2026-10-09T09:55:21+02:00",
     "status": "Actual"
   },
-  "checked_at": "2026-10-08T23:34:38Z",
+  "checked_at": "2026-10-09T09:42:29Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_080842.xml",
+  "source_file": "alert_cap_50_090755.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_080842.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_090755.xml",
   "summary": {
-    "max_color": "yellow",
+    "max_color": "green",
     "nearby_count": 0,
-    "primary_count": 1,
-    "relevant_count": 1
+    "primary_count": 0,
+    "relevant_count": 0
   },
   "territory": {
     "nearby_orp": {
@@ -34,46 +34,5 @@
       "6102": "Havlíčkův Brod"
     }
   },
-  "warnings": [
-    {
-      "area_names": [
-        "Jihomoravský kraj (Blansko, Boskovice, Brno, Ivančice, Kuřim, Moravský Krumlov, Pohořelice, Rosice, Šlapanice, Tišnov, Vyškov, Znojmo, Židlochovice)",
-        "Jihočeský kraj (Dačice, Jindřichův Hradec)",
-        "Kraj Vysočina",
-        "Olomoucký kraj (Konice, Prostějov)",
-        "Pardubický kraj (Hlinsko, Litomyšl, Moravská Třebová, Polička, Svitavy)"
-      ],
-      "awareness_level": {
-        "color": "yellow",
-        "label": "Moderate",
-        "level": 2,
-        "raw": "2; yellow; Moderate"
-      },
-      "awareness_type": "1; Wind",
-      "certainty": "Likely",
-      "description": "Při přechodu studené fronty nárazy severozápadního větru 15 až 20 m/s (55 až 70 km/h).      \n\nMožné komplikace v energetice, lesním hospodářství a dopravě. Možná poškození stromů a lesních porostů. Možné menší škody na energetické infrastruktuře, majetku a zejména starších budovách. Riziko úrazu uvolněnými předměty a zlomenými větvemi. Možné komplikace v dopravě.",
-      "event": "Silný vítr",
-      "event_codes": {
-        "SIVS": [
-          "V.1"
-        ]
-      },
-      "expires": "2026-10-09T02:00:00+02:00",
-      "headline": null,
-      "instruction": "Zajistit okna, dveře, odstranit nebo zabezpečit volně uložené předměty, stany, skleníky apod. Dbát zvýšené opatrnosti při pohybu venku a při řízení vozidel. Na horách omezit túry a nevydávat se zejména do hřebenových partií.",
-      "onset": "2026-10-08T20:00:00+02:00",
-      "orp_codes": [
-        "6101",
-        "6102",
-        "6104",
-        "6108",
-        "6111",
-        "6114",
-        "6115"
-      ],
-      "relevance": "primary",
-      "severity": "Moderate",
-      "urgency": "Future"
-    }
-  ]
+  "warnings": []
 }
