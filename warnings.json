@@ -1,25 +1,25 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261116092245.XOCZ50_OKPR_000410",
-    "message_type": "Update",
-    "sent_at": "2026-11-16T10:22:45+01:00",
+    "identifier": "2.49.0.0.203.0.CZ.261117100249.XOCZ50_OKPR_000411",
+    "message_type": "Alert",
+    "sent_at": "2026-11-17T11:02:49+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-16T23:56:44Z",
+  "checked_at": "2026-11-17T12:31:18Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_160922.xml",
+  "source_file": "alert_cap_50_171002.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_160922.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_171002.xml",
   "summary": {
-    "max_color": "green",
+    "max_color": "yellow",
     "nearby_count": 0,
-    "primary_count": 0,
-    "relevant_count": 0
+    "primary_count": 1,
+    "relevant_count": 1
   },
   "territory": {
     "nearby_orp": {
@@ -34,5 +34,45 @@
       "6102": "Havlíčkův Brod"
     }
   },
-  "warnings": []
+  "warnings": [
+    {
+      "area_names": [
+        "Jihočeský kraj (České Budějovice, Dačice, Jindřichův Hradec, Kaplice, Milevsko, Písek, Soběslav, Tábor, Trhové Sviny, Třeboň, Týn nad Vltavou, Vodňany)",
+        "Kraj Vysočina (Bystřice nad Pernštejnem, Havlíčkův Brod, Humpolec, Chotěboř, Jihlava, Nové Město na Moravě, Pacov, Pelhřimov, Světlá nad Sázavou, Telč, Žďár nad Sázavou)",
+        "Pardubický kraj (Hlinsko, Chrudim, Polička)",
+        "Středočeský kraj (Benešov, Čáslav, Dobříš, Kutná Hora, Sedlčany, Vlašim, Votice)",
+        "Ústecký kraj (Litvínov, Louny, Most, Žatec)"
+      ],
+      "awareness_level": {
+        "color": "yellow",
+        "label": "Moderate",
+        "level": 2,
+        "raw": "2; yellow; Moderate"
+      },
+      "awareness_type": "1; Wind",
+      "certainty": "Likely",
+      "description": "Silný jihozápadní až západní vítr s nárazy 15 až 20 m/s (55 až 70 km/h).\n\nMožná poškození stromů a lesních porostů. Možné menší škody na energetické infrastruktuře, majetku a zejména starších budovách. Riziko úrazu uvolněnými předměty a zlomenými větvemi. Možné komplikace v dopravě.",
+      "event": "Silný vítr",
+      "event_codes": {
+        "SIVS": [
+          "V.1"
+        ]
+      },
+      "expires": "2026-11-18T17:00:00+01:00",
+      "headline": null,
+      "instruction": "Zajistit okna, dveře, odstranit nebo zabezpečit volně uložené předměty, stany, skleníky apod. Dbát zvýšené opatrnosti při pohybu venku a při řízení vozidel. Na horách omezit túry a nevydávat se zejména do hřebenových partií.",
+      "onset": "2026-11-18T06:00:00+01:00",
+      "orp_codes": [
+        "6101",
+        "6102",
+        "6104",
+        "6108",
+        "6111",
+        "6115"
+      ],
+      "relevance": "primary",
+      "severity": "Moderate",
+      "urgency": "Future"
+    }
+  ]
 }
