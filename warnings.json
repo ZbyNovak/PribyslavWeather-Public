@@ -1,25 +1,25 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261119090136.XOCZ50_OKPR_000413",
-    "message_type": "Update",
-    "sent_at": "2026-11-19T10:01:36+01:00",
+    "identifier": "2.49.0.0.203.0.CZ.261120090507.XOCZ50_OKPR_000414",
+    "message_type": "Alert",
+    "sent_at": "2026-11-20T10:05:07+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-20T04:23:06Z",
+  "checked_at": "2026-11-20T16:25:49Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_190901.xml",
+  "source_file": "alert_cap_50_200905.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_190901.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_200905.xml",
   "summary": {
-    "max_color": "green",
+    "max_color": "yellow",
     "nearby_count": 0,
-    "primary_count": 0,
-    "relevant_count": 0
+    "primary_count": 1,
+    "relevant_count": 1
   },
   "territory": {
     "nearby_orp": {
@@ -34,5 +34,52 @@
       "6102": "Havlíčkův Brod"
     }
   },
-  "warnings": []
+  "warnings": [
+    {
+      "area_names": [
+        "Jihomoravský kraj (Boskovice)",
+        "Karlovarský kraj",
+        "Kraj Vysočina (Bystřice nad Pernštejnem, Havlíčkův Brod, Humpolec, Chotěboř, Jihlava, Nové Město na Moravě, Pelhřimov, Světlá nad Sázavou, Velké Meziříčí, Žďár nad Sázavou)",
+        "Královéhradecký kraj (Broumov, Dobruška, Dvůr Králové nad Labem, Hořice, Jaroměř, Jičín, Náchod, Nová Paka, Nové Město nad Metují, Rychnov nad Kněžnou, Trutnov, Vrchlabí)",
+        "Liberecký kraj",
+        "Moravskoslezský kraj (Bruntál, Krnov, Rýmařov)",
+        "Olomoucký kraj (Jeseník, Šumperk, Zábřeh)",
+        "Pardubický kraj (Česká Třebová, Hlinsko, Chrudim, Králíky, Lanškroun, Litomyšl, Moravská Třebová, Polička, Svitavy, Ústí nad Orlicí, Žamberk)",
+        "Plzeňský kraj (Blovice, Domažlice, Horšovský Týn, Klatovy, Kralovice, Nýřany, Plzeň, Přeštice, Rokycany, Stod, Stříbro, Sušice, Tachov)",
+        "Středočeský kraj (Hořovice, Mělník, Mladá Boleslav, Mnichovo Hradiště, Příbram, Rakovník)",
+        "Ústecký kraj (Bílina, Děčín, Chomutov, Kadaň, Litoměřice, Litvínov, Louny, Lovosice, Most, Podbořany, Rumburk, Teplice, Ústí nad Labem, Varnsdorf, Žatec)"
+      ],
+      "awareness_level": {
+        "color": "yellow",
+        "label": "Moderate",
+        "level": 2,
+        "raw": "2; yellow; Moderate"
+      },
+      "awareness_type": "2; snow-ice",
+      "certainty": "Likely",
+      "description": "Místy kluzké komunikace v důsledku náledí.\n\nPravděpodobné komplikace zejména v silniční dopravě. Hůře sjízdné a schůdné kluzké trasy a komunikace. Nebezpečí úrazu v důsledku uklouznutí. Omezení v řízení vozidla v důsledku namrznutí komunikace. Riziko smyku zejména při náhlém brždění, v zatáčkách a při prudším zrychlování. Předpoklad omezení provozu na některých komunikacích, zpoždění spojů a pravděpodobný výskyt dopravních nehod.",
+      "event": "Kluzké povrchy",
+      "event_codes": {
+        "SIVS": [
+          "VII.1"
+        ]
+      },
+      "expires": "2026-11-21T09:00:00+01:00",
+      "headline": null,
+      "instruction": "Při pohybu venku chodit velmi opatrně, dlažba a nadchody namrzají nejdříve. Starší nebo méně mobilní lidé by měli omezit vycházení ven. Jezdit velmi opatrně, přizpůsobit jízdu stavu komunikace, mosty a estakády namrzají nejdříve. Počítat s prodloužením doby jízdy. Sledovat dopravní zpravodajství. Nutnou výbavou jsou zimní pneumatiky se zákonem stanovenou minimální hloubkou dezénu pro zimní podmínky.",
+      "onset": "2026-11-21T02:00:00+01:00",
+      "orp_codes": [
+        "6101",
+        "6102",
+        "6104",
+        "6108",
+        "6111",
+        "6114",
+        "6115"
+      ],
+      "relevance": "primary",
+      "severity": "Moderate",
+      "urgency": "Future"
+    }
+  ]
 }
