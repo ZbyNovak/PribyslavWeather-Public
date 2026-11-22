@@ -1,25 +1,25 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261121092447.XOCZ50_OKPR_000415",
-    "message_type": "Update",
-    "sent_at": "2026-11-21T10:24:47+01:00",
+    "identifier": "2.49.0.0.203.0.CZ.261122093658.XOCZ50_OKPR_000416",
+    "message_type": "Alert",
+    "sent_at": "2026-11-22T10:36:58+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-21T23:58:20Z",
+  "checked_at": "2026-11-22T12:01:31Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_210924.xml",
+  "source_file": "alert_cap_50_220936.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_210924.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_220936.xml",
   "summary": {
-    "max_color": "green",
+    "max_color": "yellow",
     "nearby_count": 0,
-    "primary_count": 0,
-    "relevant_count": 0
+    "primary_count": 1,
+    "relevant_count": 1
   },
   "territory": {
     "nearby_orp": {
@@ -34,5 +34,55 @@
       "6102": "Havlíčkův Brod"
     }
   },
-  "warnings": []
+  "warnings": [
+    {
+      "area_names": [
+        "Hlavní město Praha",
+        "Jihomoravský kraj",
+        "Jihočeský kraj",
+        "Karlovarský kraj",
+        "Kraj Vysočina",
+        "Královéhradecký kraj",
+        "Liberecký kraj",
+        "Moravskoslezský kraj",
+        "Olomoucký kraj",
+        "Pardubický kraj",
+        "Plzeňský kraj",
+        "Středočeský kraj",
+        "Zlínský kraj",
+        "Ústecký kraj"
+      ],
+      "awareness_level": {
+        "color": "yellow",
+        "label": "Moderate",
+        "level": 2,
+        "raw": "2; yellow; Moderate"
+      },
+      "awareness_type": "11; unknown",
+      "certainty": "Unknown",
+      "description": "Ve čtvrtek 26. 11. očekáváme tvorbu sněhové pokrývky a s ní spojené komplikace v dopravě. Velmi výrazné komplikace jsou pravděpodobné zejména v jihovýchodní polovině území, kde může napadnout i v nižších polohách přes 10 cm sněhu. Toto je předběžné varování, doporučujeme sledovat aktualizované předpovědi a výstrahy.\n\nPravděpodobné komplikace v dopravě, energetice a dalších odvětvích.",
+      "event": "Výhled jevů",
+      "event_codes": {
+        "SIVS": [
+          "OUTLOOK"
+        ]
+      },
+      "expires": "2026-11-27T08:00:00+01:00",
+      "headline": null,
+      "instruction": "Sledovat výstrahy v mobilní aplikaci ČHMÚ nebo na webových stránkách www.chmi.cz.",
+      "onset": "2026-11-26T00:00:00+01:00",
+      "orp_codes": [
+        "6101",
+        "6102",
+        "6104",
+        "6108",
+        "6111",
+        "6114",
+        "6115"
+      ],
+      "relevance": "primary",
+      "severity": "Unknown",
+      "urgency": "Future"
+    }
+  ]
 }
