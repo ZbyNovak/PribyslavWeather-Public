@@ -1,20 +1,20 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261122093658.XOCZ50_OKPR_000416",
-    "message_type": "Alert",
-    "sent_at": "2026-11-22T10:36:58+01:00",
+    "identifier": "2.49.0.0.203.0.CZ.261123093011.XOCZ50_OKPR_000417",
+    "message_type": "Update",
+    "sent_at": "2026-11-23T10:30:11+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-23T04:03:11Z",
+  "checked_at": "2026-11-23T19:30:23Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_220936.xml",
+  "source_file": "alert_cap_50_230930.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_220936.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_230930.xml",
   "summary": {
     "max_color": "yellow",
     "nearby_count": 0,
@@ -69,7 +69,7 @@
       },
       "expires": "2026-11-27T08:00:00+01:00",
       "headline": null,
-      "instruction": "Sledovat výstrahy v mobilní aplikaci ČHMÚ nebo na webových stránkách www.chmi.cz.",
+      "instruction": "Sledovat výstrahy v mobilní aplikaci ČHMÚ nebo na webových stránkách vystrahy-cr.chmi.cz.",
       "onset": "2026-11-26T00:00:00+01:00",
       "orp_codes": [
         "6101",
