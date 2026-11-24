@@ -1,20 +1,20 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261123093011.XOCZ50_OKPR_000417",
+    "identifier": "2.49.0.0.203.0.CZ.261124105733.XOCZ50_OKPR_000418",
     "message_type": "Update",
-    "sent_at": "2026-11-23T10:30:11+01:00",
+    "sent_at": "2026-11-24T11:57:33+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-24T04:27:23Z",
+  "checked_at": "2026-11-24T19:09:21Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_230930.xml",
+  "source_file": "alert_cap_50_241057.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_230930.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_241057.xml",
   "summary": {
     "max_color": "yellow",
     "nearby_count": 0,
@@ -38,19 +38,16 @@
     {
       "area_names": [
         "Hlavní město Praha",
-        "Jihomoravský kraj",
+        "Jihomoravský kraj (Blansko, Boskovice, Kuřim, Tišnov, Vyškov)",
         "Jihočeský kraj",
-        "Karlovarský kraj",
-        "Kraj Vysočina",
-        "Královéhradecký kraj",
-        "Liberecký kraj",
+        "Kraj Vysočina (Bystřice nad Pernštejnem, Havlíčkův Brod, Humpolec, Chotěboř, Jihlava, Nové Město na Moravě, Pacov, Pelhřimov, Světlá nad Sázavou, Telč, Velké Meziříčí, Žďár nad Sázavou)",
+        "Královéhradecký kraj (Broumov, Dobruška, Dvůr Králové nad Labem, Hradec Králové, Jaroměř, Kostelec nad Orlicí, Náchod, Nové Město nad Metují, Nový Bydžov, Rychnov nad Kněžnou, Trutnov)",
         "Moravskoslezský kraj",
         "Olomoucký kraj",
         "Pardubický kraj",
-        "Plzeňský kraj",
-        "Středočeský kraj",
-        "Zlínský kraj",
-        "Ústecký kraj"
+        "Plzeňský kraj (Sušice)",
+        "Středočeský kraj (Benešov, Brandýs nad Labem-Stará Boleslav, Čáslav, Černošice, Český Brod, Dobříš, Kolín, Kutná Hora, Lysá nad Labem, Nymburk, Poděbrady, Příbram, Říčany, Sedlčany, Vlašim, Votice)",
+        "Zlínský kraj (Bystřice pod Hostýnem, Holešov, Kroměříž, Luhačovice, Otrokovice, Rožnov pod Radhoštěm, Valašské Klobouky, Valašské Meziříčí, Vizovice, Vsetín, Zlín)"
       ],
       "awareness_level": {
         "color": "yellow",
@@ -58,19 +55,19 @@
         "level": 2,
         "raw": "2; yellow; Moderate"
       },
-      "awareness_type": "11; unknown",
-      "certainty": "Unknown",
-      "description": "Ve čtvrtek 26. 11. očekáváme tvorbu sněhové pokrývky a s ní spojené komplikace v dopravě. Velmi výrazné komplikace jsou pravděpodobné zejména v jihovýchodní polovině území, kde může napadnout i v nižších polohách přes 10 cm sněhu. Toto je předběžné varování, doporučujeme sledovat aktualizované předpovědi a výstrahy.\n\nPravděpodobné komplikace v dopravě, energetice a dalších odvětvích.",
-      "event": "Výhled jevů",
+      "awareness_type": "2; snow-ice",
+      "certainty": "Likely",
+      "description": "Sněžení s tvorbou sněhové pokrývky o výšce 4 až 10 cm.\nPravděpodobné komplikace v silniční dopravě. Hůře sjízdné a schůdné trasy a komunikace, zhoršená viditelnost, omezení v řízení vozidla. Předpoklad omezení provozu na některých komunikacích, zpoždění spojů a pravděpodobný výskyt dopravních nehod.",
+      "event": "Rizikové sněhové jevy",
       "event_codes": {
         "SIVS": [
-          "OUTLOOK"
+          "VI.1"
         ]
       },
-      "expires": "2026-11-27T08:00:00+01:00",
+      "expires": "2026-11-27T06:00:00+01:00",
       "headline": null,
-      "instruction": "Sledovat výstrahy v mobilní aplikaci ČHMÚ nebo na webových stránkách vystrahy-cr.chmi.cz.",
-      "onset": "2026-11-26T00:00:00+01:00",
+      "instruction": "Jezdit a chodit velmi opatrně, přizpůsobit jízdu stavu komunikace. Sledovat dopravní zpravodajství. Nutnou výbavou jsou zimní pneumatiky se zákonem stanovenou minimální hloubkou dezénu pro zimní podmínky, na horách i sněhové řetězy. Na horách dodržovat pokyny Horské služby.",
+      "onset": "2026-11-26T06:00:00+01:00",
       "orp_codes": [
         "6101",
         "6102",
@@ -81,7 +78,7 @@
         "6115"
       ],
       "relevance": "primary",
-      "severity": "Unknown",
+      "severity": "Moderate",
       "urgency": "Future"
     }
   ]
