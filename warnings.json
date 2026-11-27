@@ -1,25 +1,25 @@
 {
   "attribution": "Data: Český hydrometeorologický ústav (ČHMÚ), opendata.chmi.cz",
   "bulletin": {
-    "identifier": "2.49.0.0.203.0.CZ.261126090619.XOCZ50_OKPR_000420",
-    "message_type": "Update",
-    "sent_at": "2026-11-26T10:06:19+01:00",
+    "identifier": "2.49.0.0.203.0.CZ.261127112056.XOCZ50_OKPR_000421",
+    "message_type": "Alert",
+    "sent_at": "2026-11-27T12:20:56+01:00",
     "status": "Actual"
   },
-  "checked_at": "2026-11-27T02:25:26Z",
+  "checked_at": "2026-11-27T13:11:37Z",
   "kind": "official_warning_state",
   "official_page_url": "https://www.chmi.cz/predpoved-pocasi/rizika",
   "schema_version": 1,
-  "source_file": "alert_cap_50_260906.xml",
+  "source_file": "alert_cap_50_271120.xml",
   "source_id": "CHMI_SIVS_CAP",
   "source_index_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/",
   "source_status": "ok",
-  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_260906.xml",
+  "source_url": "https://opendata.chmi.cz/meteorology/weather/alerts/cap/alert_cap_50_271120.xml",
   "summary": {
-    "max_color": "yellow",
-    "nearby_count": 1,
-    "primary_count": 1,
-    "relevant_count": 2
+    "max_color": "green",
+    "nearby_count": 0,
+    "primary_count": 0,
+    "relevant_count": 0
   },
   "territory": {
     "nearby_orp": {
@@ -34,83 +34,5 @@
       "6102": "Havlíčkův Brod"
     }
   },
-  "warnings": [
-    {
-      "area_names": [
-        "Jihomoravský kraj (Blansko, Boskovice, Kuřim, Tišnov, Vyškov)",
-        "Jihočeský kraj (České Budějovice, Český Krumlov, Prachatice, Soběslav, Tábor, Týn nad Vltavou)",
-        "Kraj Vysočina (Bystřice nad Pernštejnem, Havlíčkův Brod, Humpolec, Jihlava, Nové Město na Moravě, Pacov, Pelhřimov, Velké Meziříčí, Žďár nad Sázavou)",
-        "Olomoucký kraj (Prostějov, Přerov)",
-        "Zlínský kraj (Bystřice pod Hostýnem, Holešov, Kroměříž, Otrokovice)"
-      ],
-      "awareness_level": {
-        "color": "yellow",
-        "label": "Moderate",
-        "level": 2,
-        "raw": "2; yellow; Moderate"
-      },
-      "awareness_type": "2; snow-ice",
-      "certainty": "Likely",
-      "description": "Sněžení s tvorbou sněhové pokrývky o výšce 3 až 10 cm. Pravděpodobné komplikace v silniční dopravě. Hůře sjízdné a schůdné trasy a komunikace, zhoršená viditelnost, omezení v řízení vozidla. Předpoklad omezení provozu na některých komunikacích, zpoždění spojů a pravděpodobný výskyt dopravních nehod.",
-      "event": "Rizikové sněhové jevy",
-      "event_codes": {
-        "SIVS": [
-          "VI.1"
-        ]
-      },
-      "expires": "2026-11-27T06:00:00+01:00",
-      "headline": null,
-      "instruction": "Jezdit a chodit velmi opatrně, přizpůsobit jízdu stavu komunikace. Sledovat dopravní zpravodajství. Nutnou výbavou jsou zimní pneumatiky se zákonem stanovenou minimální hloubkou dezénu pro zimní podmínky, na horách i sněhové řetězy. Na horách dodržovat pokyny Horské služby.",
-      "onset": "2026-11-26T12:00:00+01:00",
-      "orp_codes": [
-        "6101",
-        "6102",
-        "6108",
-        "6114",
-        "6115"
-      ],
-      "relevance": "primary",
-      "severity": "Moderate",
-      "urgency": "Future"
-    },
-    {
-      "area_names": [
-        "Hlavní město Praha",
-        "Jihočeský kraj (Blatná, Milevsko, Písek, Strakonice, Vimperk, Vodňany)",
-        "Kraj Vysočina (Chotěboř)",
-        "Kraj Vysočina (Světlá nad Sázavou)",
-        "Královéhradecký kraj (Broumov, Dobruška, Dvůr Králové nad Labem, Hradec Králové, Jaroměř, Kostelec nad Orlicí, Náchod, Nové Město nad Metují, Nový Bydžov, Rychnov nad Kněžnou, Trutnov)",
-        "Olomoucký kraj (Hranice, Konice, Lipník nad Bečvou, Litovel, Mohelnice, Olomouc, Šternberk, Šumperk, Uničov, Zábřeh)",
-        "Pardubický kraj",
-        "Plzeňský kraj (Sušice)",
-        "Středočeský kraj (Benešov, Brandýs nad Labem-Stará Boleslav, Čáslav, Černošice, Český Brod, Dobříš, Kolín, Kutná Hora, Lysá nad Labem, Nymburk, Poděbrady, Příbram, Říčany, Sedlčany, Vlašim, Votice)"
-      ],
-      "awareness_level": {
-        "color": "yellow",
-        "label": "Moderate",
-        "level": 2,
-        "raw": "2; yellow; Moderate"
-      },
-      "awareness_type": "2; snow-ice",
-      "certainty": "Likely",
-      "description": "Sněžení s tvorbou sněhové pokrývky o výšce 3 až 10 cm. Pravděpodobné komplikace v silniční dopravě. Hůře sjízdné a schůdné trasy a komunikace, zhoršená viditelnost, omezení v řízení vozidla. Předpoklad omezení provozu na některých komunikacích, zpoždění spojů a pravděpodobný výskyt dopravních nehod.",
-      "event": "Rizikové sněhové jevy",
-      "event_codes": {
-        "SIVS": [
-          "VI.1"
-        ]
-      },
-      "expires": "2026-11-27T09:00:00+01:00",
-      "headline": null,
-      "instruction": "Jezdit a chodit velmi opatrně, přizpůsobit jízdu stavu komunikace. Sledovat dopravní zpravodajství. Nutnou výbavou jsou zimní pneumatiky se zákonem stanovenou minimální hloubkou dezénu pro zimní podmínky, na horách i sněhové řetězy. Na horách dodržovat pokyny Horské služby.",
-      "onset": "2026-11-26T17:00:00+01:00",
-      "orp_codes": [
-        "6104",
-        "6111"
-      ],
-      "relevance": "nearby",
-      "severity": "Moderate",
-      "urgency": "Future"
-    }
-  ]
+  "warnings": []
 }
